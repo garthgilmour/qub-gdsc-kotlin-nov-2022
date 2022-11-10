@@ -26,11 +26,9 @@ There are no formal prerequisites to attend the workshop. But in order to follow
 
 This repo countains the following materials:
 
-* **Slides/KotlinQubGdscNov2022_Final.pdf** Some introductory slides to get us started.
-* **Kotlin/Fundamentals** Examples of the core Kotlin language.
-* **Kotlin/DSLs** How to create Domain Specific Languages in Kotlin.
-* **Libraries/ComposeForDesktopCalculator** Using Desktop Compose to build UI's.
-* **Libraries/ServicesInKtor** Creating RESTful Microservices using the Ktor framework.
-* **Libraries/TestingWithKotest** Writing TDD, BDD and PBT based tests via Kotest.
-*
-
+* [Slides/KotlinQubGdscNov2022_Final.pdf](./Slides/KotlinQubGdscNov2022_Final.pdf) Some introductory slides to get us started.
+* [Kotlin/Fundamentals](./Kotlin/Fundamentals) Examples of the core Kotlin language.
+* [Kotlin/DSLs](./Kotlin/DSLs) How to create Domain Specific Languages in Kotlin.
+* [Libraries/ComposeForDesktopCalculator](./Libraries/ComposeForDesktopCalculator) Using Desktop Compose to build UI's.
+* [Libraries/ServicesInKtor](./Libraries/ServicesInKtor) Creating RESTful Microservices using the Ktor framework.
+* [Libraries/TestingWithKotest](./Libraries/TestingWithKotest) Writing TDD, BDD and PBT based tests via Kotest.
