@@ -10,7 +10,9 @@ class Module(val title: String) {
         return Section(index).apply(action)
     }
 }
-class Section(val index: Int)
+class Section(val index: Int) {
+    operator fun String.unaryPlus() {}
+}
 
 fun course(title: String = "Default title", action: Course.() -> Unit): Course {
     return Course(title).apply(action)
@@ -21,7 +23,9 @@ fun main(args: Array<String>) {
     val dsl1 = course {
         module {
             section {
-
+                +"topic A"
+                +"topic B"
+                +"topic C"
             }
         }
     }
@@ -29,7 +33,10 @@ fun main(args: Array<String>) {
     val dsl2 = course("Kotlin 101") {
         module("OO In Kotlin") {
             section(0) {
-
+                +"Classes"
+                +"Objects"
+                +"Methods"
+                +"Fields"
             }
         }
     }
