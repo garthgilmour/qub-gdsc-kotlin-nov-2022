@@ -1,18 +1,29 @@
-class Course(val title: String) {
+
+abstract class Container<T> {
+    protected val children = mutableListOf<T>()
+}
+
+class Course(val title: String): Container<Module>() {
+
     override fun toString() = "Some damn DSL with title $title"
 
     fun module(title: String = "Default title", action: Module.() -> Unit): Module {
-        return Module(title).apply(action)
+        return Module(title).apply(action).also { children.add(it) }
     }
 }
-class Module(val title: String) {
+class Module(val title: String): Container<Section>() {
+
     fun section(index: Int = 0, action: Section.() -> Unit): Section {
-        return Section(index).apply(action)
+        return Section(index).apply(action).also { children.add(it) }
     }
 }
-class Section(val index: Int) {
-    operator fun String.unaryPlus() {}
+class Section(val index: Int): Container<Topic>() {
+    operator fun String.unaryPlus() {
+        children.add(Topic(this))
+    }
 }
+
+class Topic(val content: String)
 
 fun course(title: String = "Default title", action: Course.() -> Unit): Course {
     return Course(title).apply(action)
@@ -22,6 +33,16 @@ fun main(args: Array<String>) {
 
     val dsl1 = course {
         module {
+            section {
+                +"topic A"
+                +"topic B"
+                +"topic C"
+            }
+            section {
+                +"topic A"
+                +"topic B"
+                +"topic C"
+            }
             section {
                 +"topic A"
                 +"topic B"
@@ -37,6 +58,11 @@ fun main(args: Array<String>) {
                 +"Objects"
                 +"Methods"
                 +"Fields"
+            }
+            section(1) {
+                +"Encapsulation"
+                +"Abstraction"
+                +"Polymorphism"
             }
         }
     }
